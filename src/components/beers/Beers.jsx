@@ -1,14 +1,19 @@
+import BeerItem from "../beerItem/BeerItem";
+
 const Beers = ({ beers }) => {
-    const MappedBeers = beers.map((beer) => (
-      <div key={beer.id}>
-        <p>{beer.beerName}</p>
-        <p>{beer.beerStyle}</p>
-        <p>${beer.price * 960}</p>
-        <p>{beer.available ? "Disponible" : "No disponible"}</p>
-        <hr/>
-      </div>
+    const MappedBeers = beers.map((beer, index) => (
+      <BeerItem
+      key={index}
+      name={beer.beerName}
+      style={beer.beerStyle}
+      price={beer.price}
+      imageUrl={beer.imageUrl}
+      available={beer.available}
+      BeerItem/>
     ));
   
-    return <div>{MappedBeers}</div>;
+    return(
+      <div className="d-flex justify-content-center flex-wrap">{MappedBeers}</div>
+    ); 
   }
 export default Beers;
